@@ -1,25 +1,39 @@
-import React from 'react';
-import { useState,useRef, useCallback } from 'react';
-import ReactMapGL from 'react-map-gl';
+import * as React from 'react';
+import {useState} from 'react';
+import {render} from 'react-dom';
+import MapGL, {
+  Popup,
+} from 'react-map-gl';
 
 const TOKEN = 'pk.eyJ1IjoicnlvdGFybzIwIiwiYSI6ImNrdml2cmhtZ2Jld2kyd3Q5ZHFudzhrcGQifQ.2zjaqGum-QE9BzQYuE4zCg'
 
-
-function MapBox() {
+export default function MapBox() {
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
-    latitude: 37.7577,
-    longitude: -122.4376,
-    zoom: 8
+    latitude: 40,
+    longitude: -100,
+    zoom: 3.5,
+    bearing: 0,
+    pitch: 0
   });
+  const [popupInfo, setPopupInfo] = useState(null);
+  const[city,setCity] = useState({name:'東京ドーム',longitude:'139.751919',latitude:'    35.7056232'});
+
 
   return (
-    <ReactMapGL
-      {...viewport}
-      onViewportChange={nextViewport => setViewport(nextViewport)}
-    />
+    <>
+      <MapGL
+        {...viewport}
+        width="100%"
+        height="100%"
+        mapStyle="mapbox://styles/mapbox/dark-v9"
+        onViewportChange={setViewport}
+        mapboxApiAccessToken={TOKEN}
+      >
+      </MapGL>
+    </>
   );
 }
 
-export default MapBox;
+export function renderToDom(container) {
+  render(<App />, container);
+}

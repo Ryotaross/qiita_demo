@@ -25,7 +25,11 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "@mapbox/mapbox-gl-language": "^1.0.0",
+        "mapbox-gl": "^2.6.0",
         "react-map-gl": "^6.1.17",
-        "react-router-dom": "^6.0.2"
+        "react-mapbox-gl": "^5.1.1",
+        "react-mapbox-gl-language": "^1.0.1",
+        "react-router-dom": "^5.2.0"
     }
 }

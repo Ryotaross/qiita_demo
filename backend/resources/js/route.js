@@ -12,7 +12,8 @@ import Map from './pages/Map';
     return (
         <div>
             <Switch>
-              <Route path='/' exact component={Example} />
+              <Route path='/example' exact component={Example} />
+              <Route path='/' exact component={Map} />
             </Switch>
         </div>
     );
