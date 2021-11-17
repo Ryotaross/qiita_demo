@@ -11,7 +11,7 @@ export default function MapBox() {
   const [viewport, setViewport] = useState({
     latitude: 40,
     longitude: -100,
-    zoom: 3.5,
+    zoom: 3,
     bearing: 0,
     pitch: 0
   });
